@@ -129,12 +129,6 @@ export default function Home() {
         closes: "19:00",
       },
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.83",
-      reviewCount: "116",
-      bestRating: "5",
-    },
     sameAs: ["https://beauty.hotpepper.jp/kr/slnH000511388/"],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
