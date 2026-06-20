@@ -1,0 +1,1304 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #f6f0e9;
+  --paper: #fbf8f4;
+  --ink: #241d1b;
+  --muted: #746966;
+  --line: #d9cec4;
+  --wine: #6e1f2b;
+  --wine-deep: #4b111c;
+  --blush: #dfb9b7;
+  --gold: #9b7651;
+}
+
+@theme inline {
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+  --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    sans-serif;
+  --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+svg {
+  display: block;
+}
+
+.site-header {
+  align-items: center;
+  background: color-mix(in srgb, var(--paper) 91%, transparent);
+  border-bottom: 1px solid rgba(110, 31, 43, 0.11);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  height: 82px;
+  left: 0;
+  padding: 0 4vw;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+}
+
+.brand {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-self: start;
+}
+
+.brand__name {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.brand__name span {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 8px;
+  letter-spacing: 0.28em;
+  margin-left: 2px;
+  margin-top: 5px;
+}
+
+.flower-mark {
+  fill: none;
+  height: 48px;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  width: 48px;
+}
+
+.flower-mark--small {
+  color: var(--wine);
+  height: 30px;
+  width: 30px;
+}
+
+.desktop-nav {
+  align-items: center;
+  display: flex;
+  gap: clamp(22px, 3vw, 48px);
+}
+
+.desktop-nav a {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  position: relative;
+}
+
+.desktop-nav a::after {
+  background: var(--wine);
+  bottom: -8px;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
+  width: 100%;
+}
+
+.desktop-nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.header-booking {
+  align-items: center;
+  background: var(--wine);
+  color: #fff;
+  display: inline-flex;
+  font-size: 12px;
+  gap: 28px;
+  justify-self: end;
+  letter-spacing: 0.1em;
+  padding: 13px 20px;
+  transition: background 0.25s ease;
+}
+
+.header-booking:hover {
+  background: var(--wine-deep);
+}
+
+.header-booking svg,
+.button svg,
+.text-link svg,
+.menu-item__arrow svg,
+.mobile-booking svg {
+  fill: none;
+  height: 18px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.4;
+  width: 18px;
+}
+
+.hero {
+  background: var(--cream);
+  display: grid;
+  grid-template-columns: 44% 56%;
+  min-height: 760px;
+  padding-top: 82px;
+  position: relative;
+}
+
+.hero__image {
+  grid-column: 2;
+  min-height: 678px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero__image::after {
+  background: linear-gradient(90deg, rgba(246, 240, 233, 0.22), transparent 24%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.hero__image img,
+.design-image img {
+  object-fit: cover;
+}
+
+.hero__content {
+  align-self: center;
+  grid-column: 1;
+  grid-row: 1;
+  padding: 80px 4vw 70px 7.5vw;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  color: var(--wine);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  margin: 0 0 28px;
+}
+
+.hero h1 {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(54px, 5.1vw, 82px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.hero h1 em {
+  color: var(--wine);
+  font-style: normal;
+}
+
+.hero__lead {
+  color: var(--muted);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  line-height: 2.15;
+  margin: 30px 0 38px;
+}
+
+.hero__actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.button {
+  align-items: center;
+  border: 1px solid transparent;
+  display: inline-flex;
+  font-size: 13px;
+  gap: 42px;
+  justify-content: center;
+  letter-spacing: 0.08em;
+  min-height: 58px;
+  padding: 0 26px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button--primary {
+  background: var(--wine);
+  color: #fff;
+}
+
+.button--primary:hover {
+  background: var(--wine-deep);
+}
+
+.button--outline {
+  border-color: var(--ink);
+}
+
+.button--outline:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+.button--cream {
+  background: var(--cream);
+  color: var(--wine);
+  min-width: 280px;
+}
+
+.button--cream:hover {
+  background: #fff;
+}
+
+.text-link {
+  align-items: center;
+  border-bottom: 1px solid currentColor;
+  display: inline-flex;
+  font-size: 12px;
+  gap: 22px;
+  letter-spacing: 0.06em;
+  padding-bottom: 7px;
+}
+
+.text-link svg {
+  transition: transform 0.25s ease;
+}
+
+.text-link:hover svg {
+  transform: translateX(5px);
+}
+
+.text-link--light {
+  color: #fff;
+}
+
+.hero__meta {
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 50px;
+  margin-top: 60px;
+  max-width: 390px;
+  padding-top: 22px;
+}
+
+.hero__meta div {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__meta strong {
+  color: var(--wine);
+  font-family: Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.hero__meta strong span {
+  font-size: 12px;
+  margin-left: 2px;
+}
+
+.hero__meta div > span {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+}
+
+.hero__scroll {
+  bottom: 30px;
+  display: flex;
+  font-family: Georgia, serif;
+  font-size: 8px;
+  gap: 12px;
+  left: 2.4vw;
+  letter-spacing: 0.25em;
+  margin: 0;
+  position: absolute;
+  transform: rotate(90deg);
+  transform-origin: left center;
+}
+
+.hero__scroll span {
+  background: var(--ink);
+  height: 1px;
+  margin-top: 4px;
+  width: 46px;
+}
+
+.section-shell {
+  margin-inline: auto;
+  max-width: 1180px;
+  padding-inline: 30px;
+}
+
+.intro {
+  display: grid;
+  gap: 9vw;
+  grid-template-columns: 1.1fr 0.9fr;
+  padding-bottom: 115px;
+  padding-top: 140px;
+}
+
+.section-heading h2,
+.menu-section h2,
+.faq-section h2 {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.section-heading h2 span {
+  color: var(--wine);
+}
+
+.intro__copy {
+  border-left: 1px solid var(--line);
+  margin-top: 45px;
+  padding-left: 42px;
+}
+
+.intro__copy p {
+  color: var(--muted);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  line-height: 2.25;
+  margin: 0 0 25px;
+}
+
+.strengths {
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 140px;
+  padding-inline: 0;
+}
+
+.strength-card {
+  min-height: 330px;
+  padding: 38px 38px 45px;
+}
+
+.strength-card + .strength-card {
+  border-left: 1px solid var(--line);
+}
+
+.strength-card__number {
+  color: var(--wine);
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+
+.strength-card__line {
+  background: var(--wine);
+  height: 1px;
+  margin: 32px 0 45px;
+  width: 32px;
+}
+
+.strength-card h3 {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  margin: 0 0 20px;
+}
+
+.strength-card p {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  line-height: 2;
+  margin: 0;
+}
+
+.design-section {
+  background: var(--wine-deep);
+  color: #fff;
+  display: grid;
+  grid-template-columns: 56% 44%;
+  min-height: 760px;
+  overflow: hidden;
+}
+
+.design-section__visual {
+  min-height: 760px;
+  position: relative;
+}
+
+.design-image {
+  box-shadow: 0 25px 70px rgba(13, 4, 6, 0.3);
+  overflow: hidden;
+  position: absolute;
+}
+
+.design-image--main {
+  height: 650px;
+  left: 12%;
+  top: -45px;
+  width: 48%;
+}
+
+.design-image--sub {
+  bottom: -50px;
+  height: 470px;
+  right: 7%;
+  width: 37%;
+}
+
+.design-section__flower {
+  bottom: 15%;
+  color: rgba(255, 255, 255, 0.32);
+  left: 5%;
+  position: absolute;
+  transform: rotate(18deg) scale(2);
+}
+
+.design-section__content {
+  align-self: center;
+  max-width: 520px;
+  padding: 80px 7vw 80px 4vw;
+}
+
+.design-section__content .eyebrow {
+  color: var(--blush);
+}
+
+.design-section__content h2 {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(39px, 4vw, 58px);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  margin: 0 0 32px;
+}
+
+.design-section__content > p:not(.eyebrow) {
+  color: rgba(255, 255, 255, 0.67);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  line-height: 2.2;
+}
+
+.design-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 35px 0 46px;
+}
+
+.design-tags span {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 100px;
+  font-family: Georgia, serif;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  padding: 8px 13px;
+}
+
+.menu-section {
+  padding-bottom: 140px;
+  padding-top: 140px;
+}
+
+.menu-section__header {
+  align-items: end;
+  display: grid;
+  gap: 8vw;
+  grid-template-columns: 1fr 0.7fr;
+  margin-bottom: 70px;
+}
+
+.menu-section__header > p {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  line-height: 2;
+  margin: 0 0 12px;
+}
+
+.menu-list {
+  border-top: 1px solid var(--ink);
+}
+
+.menu-item {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 78px 1fr auto 46px;
+  min-height: 118px;
+  padding: 18px 16px;
+  transition: background 0.25s ease;
+}
+
+.menu-item:hover {
+  background: var(--cream);
+}
+
+.menu-item__tag {
+  border: 1px solid var(--wine);
+  color: var(--wine);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  padding: 5px 8px;
+  text-align: center;
+}
+
+.menu-item__name h3 {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 0 0 9px;
+}
+
+.menu-item__name p {
+  color: var(--muted);
+  font-size: 11px;
+  margin: 0;
+}
+
+.menu-item > strong {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  min-width: 100px;
+  text-align: right;
+}
+
+.menu-item__arrow {
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: flex;
+  height: 42px;
+  justify-content: center;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+  width: 42px;
+}
+
+.menu-item:hover .menu-item__arrow {
+  border-color: var(--wine);
+  color: var(--wine);
+}
+
+.menu-section__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 55px;
+}
+
+.review-section {
+  background: var(--cream);
+  text-align: center;
+}
+
+.review-section__inner {
+  max-width: 850px;
+  padding-bottom: 110px;
+  padding-top: 110px;
+}
+
+.review-score {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.review-score__stars {
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  margin-right: 20px;
+}
+
+.review-score strong {
+  border-left: 1px solid var(--line);
+  font-family: Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  padding-left: 20px;
+}
+
+.review-score > span:last-child {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.07em;
+  margin-left: 12px;
+}
+
+.review-section blockquote {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(20px, 2.4vw, 29px);
+  letter-spacing: 0.08em;
+  line-height: 2;
+  margin: 0;
+}
+
+.review-section__source {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  margin: 32px 0 38px;
+}
+
+.access-section {
+  display: grid;
+  gap: 7vw;
+  grid-template-columns: 0.9fr 1.1fr;
+  padding-bottom: 140px;
+  padding-top: 140px;
+}
+
+.access-section__info h2 {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.access-section__kana {
+  color: var(--wine);
+  font-family: Georgia, serif;
+  font-size: 9px;
+  letter-spacing: 0.26em;
+  margin: 10px 0 45px;
+}
+
+.access-section dl {
+  border-top: 1px solid var(--line);
+  margin: 0 0 40px;
+}
+
+.access-section dl div {
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  font-size: 11px;
+  gap: 20px;
+  grid-template-columns: 78px 1fr;
+  line-height: 1.8;
+  padding: 15px 0;
+}
+
+.access-section dt {
+  color: var(--muted);
+}
+
+.access-section dd {
+  margin: 0;
+}
+
+.access-section__map {
+  background: #e9e0d6;
+  min-height: 620px;
+  overflow: hidden;
+  position: relative;
+}
+
+.map-grid {
+  background-image:
+    linear-gradient(28deg, transparent 47%, rgba(136, 120, 107, 0.26) 48%, rgba(136, 120, 107, 0.26) 50%, transparent 51%),
+    linear-gradient(115deg, transparent 44%, rgba(136, 120, 107, 0.2) 45%, rgba(136, 120, 107, 0.2) 47%, transparent 48%),
+    linear-gradient(rgba(255, 255, 255, 0.43) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.43) 1px, transparent 1px);
+  background-size: 180px 180px, 220px 220px, 55px 55px, 55px 55px;
+  inset: -20%;
+  position: absolute;
+  transform: rotate(-8deg);
+}
+
+.map-route {
+  background: #b8aa9d;
+  height: 3px;
+  position: absolute;
+  transform-origin: left;
+}
+
+.map-route--one {
+  left: 4%;
+  top: 58%;
+  transform: rotate(-22deg);
+  width: 110%;
+}
+
+.map-route--two {
+  left: 35%;
+  top: 2%;
+  transform: rotate(67deg);
+  width: 95%;
+}
+
+.map-station {
+  background: var(--ink);
+  color: #fff;
+  font-size: 11px;
+  left: 10%;
+  letter-spacing: 0.1em;
+  padding: 8px 12px;
+  position: absolute;
+  top: 69%;
+}
+
+.map-pin {
+  align-items: center;
+  background: var(--wine);
+  border-radius: 50% 50% 50% 0;
+  color: #fff;
+  display: flex;
+  height: 58px;
+  justify-content: center;
+  left: 61%;
+  position: absolute;
+  top: 35%;
+  transform: rotate(-45deg);
+  width: 58px;
+}
+
+.map-pin svg {
+  color: #fff;
+  transform: rotate(45deg);
+}
+
+.map-label {
+  background: rgba(255, 255, 255, 0.92);
+  display: flex;
+  flex-direction: column;
+  left: 48%;
+  padding: 14px 18px;
+  position: absolute;
+  top: 47%;
+}
+
+.map-label strong {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.map-label span {
+  color: var(--wine);
+  font-family: Georgia, serif;
+  font-size: 7px;
+  letter-spacing: 0.18em;
+  margin-top: 5px;
+}
+
+.map-walk {
+  bottom: 10%;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 18px;
+  position: absolute;
+  right: 8%;
+}
+
+.faq-section {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 8vw;
+  grid-template-columns: 0.55fr 1fr;
+  padding-bottom: 140px;
+  padding-top: 120px;
+}
+
+.faq-list {
+  border-top: 1px solid var(--ink);
+}
+
+.faq-list details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-list summary {
+  align-items: center;
+  cursor: pointer;
+  display: grid;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 15px;
+  gap: 22px;
+  grid-template-columns: 24px 1fr 22px;
+  letter-spacing: 0.05em;
+  list-style: none;
+  min-height: 82px;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary span {
+  color: var(--wine);
+  font-family: Georgia, serif;
+  font-size: 18px;
+}
+
+.faq-list summary i,
+.faq-list summary i::after {
+  background: var(--ink);
+  display: block;
+  height: 1px;
+  transition: transform 0.25s ease;
+  width: 18px;
+}
+
+.faq-list summary i {
+  position: relative;
+}
+
+.faq-list summary i::after {
+  content: "";
+  position: absolute;
+  transform: rotate(90deg);
+}
+
+.faq-list details[open] summary i::after {
+  transform: rotate(0);
+}
+
+.faq-list details p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2;
+  margin: -3px 0 0;
+  padding: 0 44px 28px 46px;
+}
+
+.booking-section {
+  align-items: center;
+  background: var(--wine);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 30px 110px;
+  text-align: center;
+}
+
+.booking-section > .flower-mark {
+  color: var(--blush);
+  margin-bottom: 28px;
+}
+
+.booking-section .eyebrow {
+  color: var(--blush);
+  margin-bottom: 25px;
+}
+
+.booking-section h2 {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(36px, 4.4vw, 58px);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.booking-section > p:not(.eyebrow) {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  margin: 28px 0 38px;
+}
+
+.site-footer {
+  align-items: center;
+  background: #241d1b;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  min-height: 145px;
+  padding: 30px 6vw;
+}
+
+.brand--footer .flower-mark {
+  color: var(--blush);
+}
+
+.site-footer__links {
+  display: flex;
+  font-size: 10px;
+  gap: 30px;
+  letter-spacing: 0.05em;
+}
+
+.site-footer > p {
+  color: rgba(255, 255, 255, 0.48);
+  font-family: Georgia, serif;
+  font-size: 9px;
+  justify-self: end;
+  letter-spacing: 0.08em;
+}
+
+.mobile-booking {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 54px;
+  }
+
+  .hero__content {
+    padding-left: 5vw;
+  }
+
+  .design-section__content {
+    padding-right: 4vw;
+  }
+}
+
+@media (max-width: 800px) {
+  html {
+    scroll-padding-top: 68px;
+  }
+
+  body {
+    padding-bottom: 72px;
+  }
+
+  .site-header {
+    height: 68px;
+    padding: 0 20px;
+  }
+
+  .brand__name {
+    font-size: 23px;
+  }
+
+  .header-booking {
+    display: none;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    padding-top: 68px;
+  }
+
+  .hero__image {
+    min-height: 60vh;
+    order: 1;
+  }
+
+  .hero__image img {
+    object-position: 61% center;
+  }
+
+  .hero__image::after {
+    background: linear-gradient(0deg, var(--cream), transparent 30%);
+  }
+
+  .hero__content {
+    margin-top: -22px;
+    order: 2;
+    padding: 0 22px 70px;
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 13vw, 60px);
+    line-height: 1.32;
+    white-space: normal;
+  }
+
+  .hero__lead {
+    font-size: 12px;
+    line-height: 2;
+    margin: 24px 0 30px;
+  }
+
+  .hero__actions .button {
+    width: 100%;
+  }
+
+  .hero__actions .text-link {
+    margin-left: 5px;
+  }
+
+  .hero__meta {
+    gap: 32px;
+    margin-top: 45px;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+
+  .section-shell {
+    padding-inline: 22px;
+  }
+
+  .intro {
+    display: block;
+    padding-bottom: 85px;
+    padding-top: 90px;
+  }
+
+  .section-heading h2,
+  .menu-section h2,
+  .faq-section h2 {
+    font-size: 32px;
+    line-height: 1.65;
+  }
+
+  .intro__copy {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    margin-top: 42px;
+    padding: 35px 0 0;
+  }
+
+  .strengths {
+    display: block;
+    margin-bottom: 100px;
+  }
+
+  .strength-card {
+    min-height: auto;
+    padding: 32px 22px 40px;
+  }
+
+  .strength-card + .strength-card {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .strength-card__line {
+    margin: 25px 0 30px;
+  }
+
+  .design-section {
+    display: block;
+  }
+
+  .design-section__visual {
+    min-height: 590px;
+  }
+
+  .design-image--main {
+    height: 540px;
+    left: 0;
+    top: -30px;
+    width: 68%;
+  }
+
+  .design-image--sub {
+    bottom: -15px;
+    height: 390px;
+    right: 0;
+    width: 52%;
+  }
+
+  .design-section__content {
+    padding: 85px 22px 95px;
+  }
+
+  .design-section__content h2 {
+    font-size: 38px;
+  }
+
+  .menu-section {
+    padding-bottom: 95px;
+    padding-top: 95px;
+  }
+
+  .menu-section__header {
+    display: block;
+    margin-bottom: 45px;
+  }
+
+  .menu-section__header > p {
+    margin-top: 30px;
+  }
+
+  .menu-item {
+    gap: 10px 14px;
+    grid-template-columns: 56px 1fr auto;
+    min-height: 108px;
+    padding: 18px 4px;
+  }
+
+  .menu-item__name h3 {
+    font-size: 15px;
+  }
+
+  .menu-item__name p {
+    font-size: 9px;
+  }
+
+  .menu-item > strong {
+    font-size: 16px;
+    min-width: 75px;
+  }
+
+  .menu-item__arrow {
+    display: none;
+  }
+
+  .review-section__inner {
+    padding-bottom: 85px;
+    padding-top: 85px;
+  }
+
+  .review-score {
+    flex-wrap: wrap;
+  }
+
+  .review-section blockquote {
+    font-size: 19px;
+    line-height: 2.1;
+  }
+
+  .access-section {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 95px;
+    padding-top: 95px;
+  }
+
+  .access-section__map {
+    min-height: 470px;
+    order: -1;
+  }
+
+  .access-section__info {
+    margin-top: 40px;
+  }
+
+  .faq-section {
+    display: block;
+    padding-bottom: 95px;
+    padding-top: 85px;
+  }
+
+  .faq-list {
+    margin-top: 45px;
+  }
+
+  .booking-section {
+    padding: 80px 22px 90px;
+  }
+
+  .booking-section h2 {
+    font-size: 34px;
+  }
+
+  .site-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 55px 22px;
+  }
+
+  .site-footer__links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .site-footer > p {
+    align-self: center;
+  }
+
+  .mobile-booking {
+    align-items: center;
+    background: var(--wine);
+    bottom: 0;
+    color: #fff;
+    display: flex;
+    height: 72px;
+    justify-content: space-between;
+    left: 0;
+    padding: 10px 22px;
+    position: fixed;
+    right: 0;
+    z-index: 60;
+  }
+
+  .mobile-booking span {
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+
+  .mobile-booking small {
+    color: var(--blush);
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    margin-bottom: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
