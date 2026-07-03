@@ -99,11 +99,15 @@ npm i -D wrangler@latest
 
 `src/app/sitemap.ts` は **ビルド時** に `NEXT_PUBLIC_SITE_URL` を参照するため、本番 URL を渡してビルドします。
 
+**本リポジトリでは `.env.production` に本番 URL（`https://sakura-nail-salon.paulowniarain.workers.dev`）を設定済み**のため、環境変数の指定なしでそのままデプロイできます。
+
 ```bash
-NEXT_PUBLIC_SITE_URL=https://sakura-nail-salon.<あなたのサブドメイン>.workers.dev npm run deploy
+npm run deploy
 ```
 
-> カスタムドメインを使う場合はその URL を指定してください。毎回指定するのが面倒であれば `.env.production` に `NEXT_PUBLIC_SITE_URL=...` を記載しておく方法もあります。ただし本リポジトリの `.gitignore` は `.env*` を一括除外しているため、コミットする場合は `.gitignore` に `!.env.production` の例外行を追加する必要があります（公開 URL なのでコミット自体は問題ありません）。
+> **なぜ deploy スクリプトは `.env.production` を source しているのか:** Next.js の環境変数の優先順位は `process.env` → `.env.production.local` → `.env.local` → `.env.production` の順で、**`.env.local` が `.env.production` より優先されます**。開発用セットアップ（README の `cp .env.example .env.local`）で作った `.env.local` の URL が本番ビルドに焼き込まれる事故を防ぐため、`deploy` / `preview` スクリプトは `set -a && . ./.env.production` で `.env.production` の値を process.env（最優先）へ昇格させてからビルドします。つまり**デプロイ時の URL は常に `.env.production` の値**です。別の URL でデプロイしたい場合はこのファイルを編集してください。
+
+> カスタムドメインへ移行する場合は `.env.production` の `NEXT_PUBLIC_SITE_URL` をそのドメインに更新して再デプロイしてください。`.env.production` は公開 URL のみを含むためコミット済みです（`.gitignore` は `.env*` を一括除外していますが、`!.env.production` の例外を設定してあります）。
 
 初回デプロイ後、`https://sakura-nail-salon.<サブドメイン>.workers.dev` が発行されます。
 
@@ -208,16 +212,16 @@ npm run deploy    # 本番デプロイ
 3. Build command / Deploy command を設定
    - 方式 A: build `npx next build` / deploy `npx wrangler deploy`
    - 方式 B: build `npx opennextjs-cloudflare build` / deploy `npx opennextjs-cloudflare deploy`
-4. ビルド環境変数に `NEXT_PUBLIC_SITE_URL` を設定
+
+本番 URL はコミット済みの `.env.production` から読まれるため、ビルド環境変数の設定は不要です（別の URL でビルドしたい場合のみ `NEXT_PUBLIC_SITE_URL` を設定して上書き）。
 
 以後、push するたびに自動デプロイされ、非本番ブランチにはプレビュー URL が発行されます。
 
 ### 案 2: GitHub Actions
 
-以下を設定してから、ワークフローを `.github/workflows/deploy.yml` に置きます。
+リポジトリの **Secrets**（Settings → Secrets and variables → Actions → Secrets）に `CLOUDFLARE_API_TOKEN`（ダッシュボード → My Profile → API Tokens → "Edit Cloudflare Workers" テンプレート）と `CLOUDFLARE_ACCOUNT_ID` を登録し、以下を `.github/workflows/deploy.yml` に置きます。本番 URL はコミット済みの `.env.production` から読まれます。
 
-1. **Secrets**（リポジトリ → Settings → Secrets and variables → Actions → Secrets）: `CLOUDFLARE_API_TOKEN`（ダッシュボード → My Profile → API Tokens → "Edit Cloudflare Workers" テンプレート）と `CLOUDFLARE_ACCOUNT_ID`
-2. **Variables**（同 → Variables タブ）: `NEXT_PUBLIC_SITE_URL` に本番 URL を登録。**未登録だと sitemap や canonical URL が `http://localhost:3000` のままビルドされます（ビルドは成功するため気づきにくい）**
+> ワークフローの `env` で `NEXT_PUBLIC_SITE_URL` を渡す構成にする場合は注意: 参照した Actions 変数が未登録だと**空文字**が設定され、`.env.production` より優先されて sitemap や canonical URL が壊れます。
 
 ```yaml
 name: Deploy Worker
@@ -235,8 +239,6 @@ jobs:
           node-version: 22
       - run: npm ci
       - run: npx next build
-        env:
-          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
       - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
