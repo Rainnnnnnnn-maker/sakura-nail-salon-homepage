@@ -11,8 +11,10 @@ cp .env.example .env.local
 npm run dev
 ```
 
-`.env.local` の `NEXT_PUBLIC_SITE_URL` を実際の公開URLに変更してください。
-この値は canonical URL、OGP、JSON-LD、sitemap、robots.txt に使用されます。
+`.env.local` の `NEXT_PUBLIC_SITE_URL` は開発時（`npm run dev` / `npm run build`）に
+canonical URL、OGP、JSON-LD、sitemap、robots.txt へ反映されます。
+デプロイ時（`npm run deploy` / `npm run preview`）は `.env.local` に関係なく、
+常に `.env.production` の本番URLが使われます。
 
 ## 検証
 

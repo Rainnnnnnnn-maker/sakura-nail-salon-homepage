@@ -105,11 +105,7 @@ npm i -D wrangler@latest
 npm run deploy
 ```
 
-別の URL でビルドしたい場合は環境変数で上書きできます。
-
-```bash
-NEXT_PUBLIC_SITE_URL=https://example.com npm run deploy
-```
+> **なぜ deploy スクリプトは `.env.production` を source しているのか:** Next.js の環境変数の優先順位は `process.env` → `.env.production.local` → `.env.local` → `.env.production` の順で、**`.env.local` が `.env.production` より優先されます**。開発用セットアップ（README の `cp .env.example .env.local`）で作った `.env.local` の URL が本番ビルドに焼き込まれる事故を防ぐため、`deploy` / `preview` スクリプトは `set -a && . ./.env.production` で `.env.production` の値を process.env（最優先）へ昇格させてからビルドします。つまり**デプロイ時の URL は常に `.env.production` の値**です。別の URL でデプロイしたい場合はこのファイルを編集してください。
 
 > カスタムドメインへ移行する場合は `.env.production` の `NEXT_PUBLIC_SITE_URL` をそのドメインに更新して再デプロイしてください。`.env.production` は公開 URL のみを含むためコミット済みです（`.gitignore` は `.env*` を一括除外していますが、`!.env.production` の例外を設定してあります）。
 
