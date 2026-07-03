@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# wrangler (Cloudflare) ローカル状態
+/.wrangler/
+
 # production
 /build
 

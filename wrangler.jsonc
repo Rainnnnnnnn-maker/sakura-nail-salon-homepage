@@ -1,0 +1,11 @@
+// Cloudflare Workers (Static Assets) の設定。手順は __docs__/cloudflare-deploy.md を参照
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sakura-nail-salon",
+  // インストール中の workerd (1.20260630.1) が対応する上限日付。wrangler 更新時に進めてよい
+  "compatibility_date": "2026-06-30",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
