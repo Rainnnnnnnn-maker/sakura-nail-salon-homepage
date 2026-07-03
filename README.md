@@ -19,6 +19,18 @@ npm run dev
 ```bash
 npm run lint
 npm run build
+npm run preview  # ビルド結果を http://localhost:8787 で確認（wrangler dev）
+```
+
+`output: "export"`（静的エクスポート）のため `next start` は使えません。
+
+## デプロイ
+
+Cloudflare Workers（Static Assets）へデプロイします。手順の詳細は
+[__docs__/cloudflare-deploy.md](__docs__/cloudflare-deploy.md) を参照してください。
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://<本番URL> npm run deploy
 ```
 
 ## 予約・店舗情報
