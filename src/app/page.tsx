@@ -82,9 +82,22 @@ function FlowerMark({ small = false }: { small?: boolean }) {
       aria-hidden="true"
     >
       <path d="M24 23C9 22 6 9 13 5c6-3 12 5 11 18Z" />
-      <path d="M25 23C25 8 38 5 42 12c3 6-5 12-17 11Z" />
-      <path d="M25 25c15 0 18 13 11 17-6 3-12-5-11-17Z" />
-      <path d="M23 25C23 40 10 43 6 36c-3-6 5-12 17-11Z" />
+      <path
+        d="M24 23C9 22 6 9 13 5c6-3 12 5 11 18Z"
+        transform="rotate(72 24 24)"
+      />
+      <path
+        d="M24 23C9 22 6 9 13 5c6-3 12 5 11 18Z"
+        transform="rotate(144 24 24)"
+      />
+      <path
+        d="M24 23C9 22 6 9 13 5c6-3 12 5 11 18Z"
+        transform="rotate(216 24 24)"
+      />
+      <path
+        d="M24 23C9 22 6 9 13 5c6-3 12 5 11 18Z"
+        transform="rotate(288 24 24)"
+      />
       <circle cx="24" cy="24" r="3" />
     </svg>
   );

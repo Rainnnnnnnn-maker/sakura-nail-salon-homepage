@@ -2,9 +2,10 @@
   <rect width="64" height="64" rx="14" fill="#6e1f2b"/>
   <g fill="none" stroke="#f6f0e9" stroke-width="2">
     <path d="M32 31C13 30 10 14 19 9c8-4 14 6 13 22Z"/>
-    <path d="M33 31c0-19 16-22 21-13 4 8-6 14-21 13Z"/>
-    <path d="M33 33c19 0 22 16 13 21-8 4-14-6-13-21Z"/>
-    <path d="M31 33c0 19-16 22-21 13-4-8 6-14 21-13Z"/>
+    <path d="M32 31C13 30 10 14 19 9c8-4 14 6 13 22Z" transform="rotate(72 32 32)"/>
+    <path d="M32 31C13 30 10 14 19 9c8-4 14 6 13 22Z" transform="rotate(144 32 32)"/>
+    <path d="M32 31C13 30 10 14 19 9c8-4 14 6 13 22Z" transform="rotate(216 32 32)"/>
+    <path d="M32 31C13 30 10 14 19 9c8-4 14 6 13 22Z" transform="rotate(288 32 32)"/>
     <circle cx="32" cy="32" r="4" fill="#f6f0e9"/>
   </g>
 </svg>
