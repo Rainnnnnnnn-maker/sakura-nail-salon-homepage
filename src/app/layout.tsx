@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 const siteUrl =
@@ -75,6 +76,10 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+// Cloudflare Web Analytics。トークンはビルド時に .env.production から焼き込まれる
+// （未設定ならスクリプト自体を出力しない）
+const cfBeaconToken = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -83,6 +88,12 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>{children}</body>
+      {cfBeaconToken && (
+        <Script
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={`{"token": "${cfBeaconToken}"}`}
+        />
+      )}
     </html>
   );
 }
