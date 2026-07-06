@@ -260,9 +260,9 @@ export default function Home() {
           <div className="hero__content">
             <p className="eyebrow">NAGOYA KITA-KU, KAMIIIDA</p>
             <h1 id="hero-title">
-              名古屋市北区の
+              私らしさが、
               <br />
-              <em>ネイルサロン。</em>
+              <em>指先に咲く。</em>
             </h1>
             <p className="hero__lead">
               桜ネイルサロンは、上飯田駅徒歩2分。
