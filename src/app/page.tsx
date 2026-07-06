@@ -2,6 +2,8 @@ import Image from "next/image";
 
 const bookingUrl =
   "https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000511388";
+const phoneNumber = "080-1624-8915";
+const phoneHref = "tel:08016248915";
 
 const menuItems = [
   {
@@ -48,7 +50,27 @@ const strengths = [
   },
 ];
 
+const localHighlights = [
+  {
+    title: "上飯田駅から徒歩約2分",
+    text: "地下鉄・名鉄 上飯田駅3番出口からすぐ。名古屋市北区で仕事帰りや買い物の前後にも通いやすい立地です。",
+  },
+  {
+    title: "シンプルから持ち込みまで対応",
+    text: "ワンカラー、ラメグラ、マグネット、韓国・ワンホン、イベントネイルまで、理想の雰囲気に合わせてご提案します。",
+  },
+  {
+    title: "駐車場あり",
+    text: "北区周辺からお車でお越しの方にも便利です。ご利用の際は予約時にお知らせください。",
+  },
+];
+
 const faqs = [
+  {
+    question: "名古屋市北区でネイルサロンを探しています。最寄り駅はどこですか？",
+    answer:
+      "桜ネイルサロンは愛知県名古屋市北区上飯田西町にあり、地下鉄・名鉄 上飯田駅3番出口より徒歩約2分です。",
+  },
   {
     question: "初めてでも予約できますか？",
     answer:
@@ -63,6 +85,11 @@ const faqs = [
     question: "駐車場はありますか？",
     answer:
       "駐車場をご用意しています。お車でお越しの際は、予約時の備考欄にご記入ください。",
+  },
+  {
+    question: "名古屋市北区で人気のデザインには対応していますか？",
+    answer:
+      "マグネットネイル、シンプルネイル、韓国・ワンホン系、持ち込みデザインなどに対応しています。700色のカラーや豊富なパーツからご相談いただけます。",
   },
 ];
 
@@ -104,62 +131,95 @@ function FlowerMark({ small = false }: { small?: boolean }) {
 }
 
 export default function Home() {
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const siteUrl = (
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  ).replace(/\/$/, "");
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "NailSalon",
-    name: "桜ネイルサロン",
-    alternateName: "サクラネイルサロン",
-    url: siteUrl,
-    image: `${siteUrl}/images/hero-sakura-nail.png`,
-    description:
-      "名古屋市北区・上飯田駅徒歩2分。豊富なカラーとパーツ、丁寧なカウンセリングが魅力のネイルサロン。",
-    priceRange: "¥4,500〜",
-    paymentAccepted: "現金",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "上飯田西町3-10-10",
-      addressLocality: "名古屋市北区",
-      addressRegion: "愛知県",
-      postalCode: "462-0809",
-      addressCountry: "JP",
-    },
-    openingHoursSpecification: [
+    "@graph": [
       {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
+        "@type": ["NailSalon", "LocalBusiness"],
+        "@id": `${siteUrl}/#salon`,
+        name: "桜ネイルサロン",
+        alternateName: "サクラネイルサロン",
+        url: `${siteUrl}/`,
+        image: [
+          `${siteUrl}/images/hero-sakura-nail.png`,
+          `${siteUrl}/images/magnetic-nail.png`,
+          `${siteUrl}/images/micro-french-nail.png`,
         ],
-        opens: "09:00",
-        closes: "19:00",
+        description:
+          "名古屋市北区・上飯田駅徒歩2分。豊富なカラーとパーツ、丁寧なカウンセリングが魅力のネイルサロン。",
+        telephone: phoneNumber,
+        priceRange: "¥4,500〜",
+        paymentAccepted: "現金",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "上飯田西町3-10-10",
+          addressLocality: "名古屋市北区",
+          addressRegion: "愛知県",
+          postalCode: "462-0809",
+          addressCountry: "JP",
+        },
+        areaServed: [
+          { "@type": "City", name: "名古屋市北区" },
+          { "@type": "Place", name: "上飯田" },
+          { "@type": "Place", name: "平安通" },
+          { "@type": "Place", name: "志賀本通" },
+        ],
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday",
+            ],
+            opens: "09:00",
+            closes: "19:00",
+          },
+        ],
+        sameAs: ["https://beauty.hotpepper.jp/kr/slnH000511388/"],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "名古屋市北区のネイルメニュー",
+          itemListElement: menuItems.map((item) => ({
+            "@type": "Offer",
+            priceCurrency: "JPY",
+            price: item.price.replace(/[¥〜,]/g, ""),
+            name: item.name,
+            description: item.description,
+            areaServed: "名古屋市北区",
+          })),
+        },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${siteUrl}/#faq`,
+        mainEntity: faqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
       },
     ],
-    sameAs: ["https://beauty.hotpepper.jp/kr/slnH000511388/"],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "ネイルメニュー",
-      itemListElement: menuItems.map((item) => ({
-        "@type": "Offer",
-        priceCurrency: "JPY",
-        name: item.name,
-        description: item.description,
-      })),
-    },
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        }}
       />
 
       <header className="site-header">
@@ -198,16 +258,16 @@ export default function Home() {
             />
           </div>
           <div className="hero__content">
-            <p className="eyebrow">KAMIIIDA, NAGOYA</p>
+            <p className="eyebrow">NAGOYA KITA-KU, KAMIIIDA</p>
             <h1 id="hero-title">
-              私らしさが、
+              名古屋市北区の
               <br />
-              <em>指先に咲く。</em>
+              <em>ネイルサロン。</em>
             </h1>
             <p className="hero__lead">
-              700色の中から見つける、あなただけの彩り。
+              桜ネイルサロンは、上飯田駅徒歩2分。
               <br />
-              丁寧なケアと美しいフォルムで、毎日を少し特別に。
+              700色のカラーと丁寧なケアで、私らしい指先へ。
             </p>
             <div className="hero__actions">
               <a
@@ -257,6 +317,33 @@ export default function Home() {
               一人ひとりの爪やライフスタイルに向き合い、
               「似合う」と「好き」が重なるデザインをご提案します。
             </p>
+          </div>
+        </section>
+
+        <section className="local-section section-shell" aria-labelledby="local-title">
+          <div className="section-heading">
+            <p className="eyebrow">LOCAL NAIL SALON</p>
+            <h2 id="local-title">
+              名古屋市北区で
+              <br />
+              <span>通いやすいネイルサロンをお探しの方へ。</span>
+            </h2>
+          </div>
+          <div className="local-section__content">
+            <p>
+              上飯田、平安通、志賀本通、大曽根周辺から通いやすい場所で、
+              シンプルネイルから持ち込みデザインまで丁寧に仕上げます。
+              名古屋市北区でネイルを長く楽しみたい方に、爪の状態や生活に
+              合わせたデザインをご提案します。
+            </p>
+            <div className="local-list">
+              {localHighlights.map((item) => (
+                <article className="local-item" key={item.title}>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -416,6 +503,14 @@ export default function Home() {
                 <dd>地下鉄・名鉄 上飯田駅 3番出口より徒歩約2分</dd>
               </div>
               <div>
+                <dt>電話</dt>
+                <dd>
+                  <a className="phone-link" href={phoneHref}>
+                    {phoneNumber}
+                  </a>
+                </dd>
+              </div>
+              <div>
                 <dt>営業時間</dt>
                 <dd>9:00–19:00（最終受付 17:00）</dd>
               </div>
@@ -486,15 +581,20 @@ export default function Home() {
             はじめませんか。
           </h2>
           <p>24時間いつでも、HOT PEPPER Beautyからご予約いただけます。</p>
-          <a
-            className="button button--cream"
-            href={bookingUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            空席確認・予約する
-            <ArrowIcon />
-          </a>
+          <div className="booking-section__actions">
+            <a
+              className="button button--cream"
+              href={bookingUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              空席確認・予約する
+              <ArrowIcon />
+            </a>
+            <a className="phone-link phone-link--light" href={phoneHref}>
+              電話する {phoneNumber}
+            </a>
+          </div>
         </section>
       </main>
 

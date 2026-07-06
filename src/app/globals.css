@@ -414,6 +414,55 @@ svg {
   margin: 0 0 25px;
 }
 
+.local-section {
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 8vw;
+  grid-template-columns: 0.92fr 1.08fr;
+  margin-bottom: 140px;
+  padding-bottom: 82px;
+  padding-top: 82px;
+}
+
+.local-section__content > p {
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  line-height: 2.15;
+  margin: 0 0 42px;
+}
+
+.local-list {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.local-item {
+  background: var(--cream);
+  min-height: 190px;
+  padding: 28px 24px;
+}
+
+.local-item h3 {
+  color: var(--wine);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.65;
+  margin: 0 0 18px;
+}
+
+.local-item p {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  line-height: 2;
+  margin: 0;
+}
+
 .strengths {
   border-bottom: 1px solid var(--line);
   border-top: 1px solid var(--line);
@@ -743,6 +792,24 @@ svg {
   margin: 0;
 }
 
+.phone-link {
+  color: var(--wine);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.phone-link--light {
+  color: #fff;
+  display: inline-flex;
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    sans-serif;
+  font-size: 13px;
+  justify-content: center;
+}
+
 .access-section__map {
   background: #e9e0d6;
   min-height: 620px;
@@ -953,6 +1020,13 @@ svg {
   margin: 28px 0 38px;
 }
 
+.booking-section__actions {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .site-footer {
   align-items: center;
   background: #241d1b;
@@ -1107,6 +1181,33 @@ svg {
     border-top: 1px solid var(--line);
     margin-top: 42px;
     padding: 35px 0 0;
+  }
+
+  .local-section {
+    display: block;
+    margin-bottom: 100px;
+    padding-bottom: 0;
+    padding-top: 70px;
+  }
+
+  .local-section__content > p {
+    margin-top: 35px;
+  }
+
+  .local-list {
+    display: block;
+    margin-inline: -22px;
+  }
+
+  .local-item {
+    border-top: 1px solid var(--paper);
+    min-height: auto;
+    padding: 30px 22px 34px;
+  }
+
+  .local-item h3 {
+    font-size: 17px;
+    margin-bottom: 12px;
   }
 
   .strengths {
