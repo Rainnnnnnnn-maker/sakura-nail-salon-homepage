@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --cream: #f6f0e9;
-  --paper: #fbf8f4;
+  --cream: #fff1f5;
+  --paper: #fff9fb;
   --ink: #241d1b;
   --muted: #746966;
-  --line: #d9cec4;
-  --wine: #6e1f2b;
-  --wine-deep: #4b111c;
-  --blush: #dfb9b7;
+  --line: #ead1d9;
+  --wine: #a84f66;
+  --wine-deep: #7f3448;
+  --blush: #ffe8ee;
   --gold: #9b7651;
 }
 
@@ -56,7 +56,7 @@ svg {
 .site-header {
   align-items: center;
   background: color-mix(in srgb, var(--paper) 91%, transparent);
-  border-bottom: 1px solid rgba(110, 31, 43, 0.11);
+  border-bottom: 1px solid rgba(168, 79, 102, 0.16);
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   height: 82px;
@@ -183,7 +183,7 @@ svg {
 }
 
 .hero__image::after {
-  background: linear-gradient(90deg, rgba(246, 240, 233, 0.22), transparent 24%);
+  background: linear-gradient(90deg, rgba(255, 241, 245, 0.26), transparent 24%);
   content: "";
   inset: 0;
   pointer-events: none;

@@ -10,8 +10,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "名古屋市北区・上飯田駅徒歩2分のネイルサロン",
     start_url: "/",
     display: "standalone",
-    background_color: "#fbf8f4",
-    theme_color: "#6e1f2b",
+    background_color: "#fff9fb",
+    theme_color: "#fff1f5",
     lang: "ja",
   };
 }
