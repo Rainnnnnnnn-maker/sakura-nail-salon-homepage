@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#6e1f2b"/>
+  <rect width="64" height="64" rx="14" fill="#f3a6b8"/>
   <g fill="none" stroke="#f6f0e9" stroke-width="2">
     <path d="M32 31C13 30 10 14 19 9c8-4 14 6 13 22Z"/>
     <path d="M32 31C13 30 10 14 19 9c8-4 14 6 13 22Z" transform="rotate(72 32 32)"/>
