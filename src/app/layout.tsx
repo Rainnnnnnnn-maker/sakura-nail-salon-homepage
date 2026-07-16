@@ -90,6 +90,7 @@ export default function RootLayout({
       <body>{children}</body>
       {cfBeaconToken && (
         <Script
+          type="module"
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon={`{"token": "${cfBeaconToken}"}`}
         />
