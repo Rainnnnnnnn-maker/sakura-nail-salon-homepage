@@ -99,7 +99,7 @@ npm i -D wrangler@latest
 
 `src/app/sitemap.ts` は **ビルド時** に `NEXT_PUBLIC_SITE_URL` を参照するため、本番 URL を渡してビルドします。
 
-**本リポジトリでは `.env.production` に本番 URL（`https://sakura-nail-salon.paulowniarain.workers.dev`）を設定済み**のため、環境変数の指定なしでそのままデプロイできます。
+**本リポジトリでは `.env.production` に本番 URL（`https://www.sakura-nail-salon.com`）を設定済み**のため、環境変数の指定なしでそのままデプロイできます。
 
 ```bash
 npm run deploy
@@ -248,6 +248,9 @@ jobs:
 ---
 
 ## カスタムドメインの設定（任意）
+
+現在のカスタムドメインは `https://www.sakura-nail-salon.com` です。
+別のカスタムドメインへ変更する場合は、以下の手順を実施します。
 
 1. ドメインを Cloudflare に追加（ネームサーバーを Cloudflare に変更）
 2. ダッシュボード → **Workers & Pages** → 対象 Worker → **Settings** → **Domains & Routes** → **Add** → **Custom Domain**
