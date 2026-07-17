@@ -145,9 +145,9 @@ export default function Home() {
         alternateName: "サクラネイルサロン",
         url: `${siteUrl}/`,
         image: [
-          `${siteUrl}/images/hero-sakura-nail.png`,
-          `${siteUrl}/images/magnetic-nail.png`,
-          `${siteUrl}/images/micro-french-nail.png`,
+          `${siteUrl}/images/hero-sakura-nail.webp`,
+          `${siteUrl}/images/magnetic-nail.webp`,
+          `${siteUrl}/images/micro-french-nail.webp`,
         ],
         description:
           "名古屋市北区・上飯田駅徒歩2分。豊富なカラーとパーツ、丁寧なカウンセリングが魅力のネイルサロン。",
@@ -162,6 +162,13 @@ export default function Home() {
           postalCode: "462-0809",
           addressCountry: "JP",
         },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 35.204514,
+          longitude: 136.928787,
+        },
+        hasMap:
+          "https://www.google.com/maps/search/?api=1&query=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E5%8C%97%E5%8C%BA%E4%B8%8A%E9%A3%AF%E7%94%B0%E8%A5%BF%E7%94%BA3-10-10",
         areaServed: [
           { "@type": "City", name: "名古屋市北区" },
           { "@type": "Place", name: "上飯田" },
@@ -250,7 +257,7 @@ export default function Home() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero__image">
             <Image
-              src="/images/hero-sakura-nail.png"
+              src="/images/hero-sakura-nail.webp"
               alt="桜色とパールの上品なジェルネイル"
               fill
               priority
@@ -258,7 +265,7 @@ export default function Home() {
             />
           </div>
           <div className="hero__content">
-            <p className="eyebrow">NAGOYA KITA-KU, KAMIIIDA</p>
+            <p className="eyebrow">名古屋市北区・上飯田のネイルサロン</p>
             <h1 id="hero-title">
               私らしさが、
               <br />
@@ -362,7 +369,7 @@ export default function Home() {
           <div className="design-section__visual">
             <div className="design-image design-image--main">
               <Image
-                src="/images/magnetic-nail.png"
+                src="/images/magnetic-nail.webp"
                 alt="ローズベージュのマグネットネイル"
                 fill
                 sizes="(max-width: 800px) 76vw, 32vw"
@@ -370,7 +377,7 @@ export default function Home() {
             </div>
             <div className="design-image design-image--sub">
               <Image
-                src="/images/micro-french-nail.png"
+                src="/images/micro-french-nail.webp"
                 alt="ボルドーのマイクロフレンチネイル"
                 fill
                 sizes="(max-width: 800px) 52vw, 22vw"

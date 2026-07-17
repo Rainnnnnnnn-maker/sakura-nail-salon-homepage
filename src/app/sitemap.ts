@@ -14,9 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
       images: [
-        `${siteUrl}/images/hero-sakura-nail.png`,
-        `${siteUrl}/images/magnetic-nail.png`,
-        `${siteUrl}/images/micro-french-nail.png`,
+        `${siteUrl}/images/hero-sakura-nail.webp`,
+        `${siteUrl}/images/magnetic-nail.webp`,
+        `${siteUrl}/images/micro-french-nail.webp`,
       ],
     },
   ];

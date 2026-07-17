@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "名古屋市北区でネイルサロンをお探しなら、上飯田駅徒歩2分の桜ネイルサロンへ。1200色以上のカラー、豊富なパーツ、丁寧なケアでシンプルネイルから持ち込みデザインまで対応。駐車場あり。",
   keywords: [
     "名古屋 北区 ネイル",
+    "名古屋北区 ネイル",
+    "名古屋北区 ネイルサロン",
     "名古屋市北区 ネイル",
     "名古屋市北区 ネイルサロン",
     "北区 ネイル",
@@ -43,9 +45,9 @@ export const metadata: Metadata = {
       "名古屋市北区・上飯田駅徒歩2分。1200色以上から選べるカラーと丁寧なケアで、シンプルから持ち込みデザインまで理想のネイルをご提案します。",
     images: [
       {
-        url: "/images/hero-sakura-nail.png",
-        width: 1717,
-        height: 916,
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "桜ネイルサロンの上品なジェルネイル",
       },
     ],
@@ -55,7 +57,7 @@ export const metadata: Metadata = {
     title: "名古屋市北区のネイルサロン｜桜ネイルサロン 上飯田駅徒歩2分",
     description:
       "名古屋市北区・上飯田駅徒歩2分。丁寧なケアと美しいフォルムが魅力のネイルサロン。",
-    images: ["/images/hero-sakura-nail.png"],
+    images: ["/images/og-image.jpg"],
   },
   robots: {
     index: true,
