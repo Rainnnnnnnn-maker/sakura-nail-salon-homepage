@@ -5,33 +5,36 @@ import "./globals.css";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
+const seoTitle =
+  "名古屋市北区のネイルサロン｜桜ネイルサロン（上飯田駅徒歩2分）";
+const seoDescription =
+  "名古屋市北区でネイルサロンをお探しなら、上飯田駅徒歩2分の桜ネイルサロンへ。1200色以上のカラーと丁寧なケアで、ワンカラー・マグネットネイル・持ち込みデザインまで対応。駐車場あり。";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "名古屋市北区のネイルサロン｜桜ネイルサロン 上飯田駅徒歩2分",
+    default: seoTitle,
     template: "%s｜桜ネイルサロン",
   },
-  description:
-    "名古屋市北区でネイルサロンをお探しなら、上飯田駅徒歩2分の桜ネイルサロンへ。1200色以上のカラー、豊富なパーツ、丁寧なケアでシンプルネイルから持ち込みデザインまで対応。駐車場あり。",
+  description: seoDescription,
+  applicationName: "桜ネイルサロン",
   keywords: [
-    "名古屋 北区 ネイル",
-    "名古屋北区 ネイル",
-    "名古屋北区 ネイルサロン",
     "名古屋市北区 ネイル",
     "名古屋市北区 ネイルサロン",
-    "北区 ネイル",
     "上飯田 ネイルサロン",
     "上飯田 ネイル",
     "桜ネイルサロン",
-    "シンプルネイル 名古屋市北区",
-    "マグネットネイル 名古屋",
-    "持ち込みネイル 名古屋",
-    "韓国ネイル 名古屋",
-    "駐車場あり ネイルサロン",
   ],
   authors: [{ name: "桜ネイルサロン" }],
   creator: "桜ネイルサロン",
   publisher: "桜ネイルサロン",
+  category: "ネイルサロン",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: true,
+  },
   alternates: {
     canonical: "/",
   },
@@ -40,9 +43,8 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: "/",
     siteName: "桜ネイルサロン",
-    title: "名古屋市北区のネイルサロン｜桜ネイルサロン 上飯田駅徒歩2分",
-    description:
-      "名古屋市北区・上飯田駅徒歩2分。1200色以上から選べるカラーと丁寧なケアで、シンプルから持ち込みデザインまで理想のネイルをご提案します。",
+    title: seoTitle,
+    description: seoDescription,
     images: [
       {
         url: "/images/og-image.jpg",
@@ -54,10 +56,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "名古屋市北区のネイルサロン｜桜ネイルサロン 上飯田駅徒歩2分",
-    description:
-      "名古屋市北区・上飯田駅徒歩2分。丁寧なケアと美しいフォルムが魅力のネイルサロン。",
-    images: ["/images/og-image.jpg"],
+    title: seoTitle,
+    description: seoDescription,
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        alt: "桜ネイルサロンの上品なジェルネイル",
+      },
+    ],
   },
   robots: {
     index: true,

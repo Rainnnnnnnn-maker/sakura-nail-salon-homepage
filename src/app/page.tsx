@@ -139,11 +139,43 @@ export default function Home() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["NailSalon", "LocalBusiness"],
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: `${siteUrl}/`,
+        name: "桜ネイルサロン",
+        alternateName: "名古屋市北区の桜ネイルサロン",
+        inLanguage: "ja-JP",
+        publisher: { "@id": `${siteUrl}/#salon` },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${siteUrl}/#webpage`,
+        url: `${siteUrl}/`,
+        name: "名古屋市北区のネイルサロン｜桜ネイルサロン（上飯田駅徒歩2分）",
+        description:
+          "名古屋市北区・上飯田駅徒歩2分。1200色以上のカラーと丁寧なケアで、ワンカラーから持ち込みデザインまで対応するネイルサロンです。",
+        inLanguage: "ja-JP",
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        about: { "@id": `${siteUrl}/#salon` },
+        mainEntity: { "@id": `${siteUrl}/#salon` },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/images/hero-sakura-nail.webp`,
+          width: 1717,
+          height: 916,
+        },
+      },
+      {
+        "@type": "NailSalon",
         "@id": `${siteUrl}/#salon`,
         name: "桜ネイルサロン",
-        alternateName: "サクラネイルサロン",
+        alternateName: [
+          "サクラネイルサロン",
+          "名古屋市北区の桜ネイルサロン",
+        ],
         url: `${siteUrl}/`,
+        mainEntityOfPage: { "@id": `${siteUrl}/#webpage` },
+        logo: `${siteUrl}/icon.png`,
         image: [
           `${siteUrl}/images/hero-sakura-nail.webp`,
           `${siteUrl}/images/magnetic-nail.webp`,
@@ -153,6 +185,7 @@ export default function Home() {
           "名古屋市北区・上飯田駅徒歩2分。豊富なカラーとパーツ、丁寧なカウンセリングが魅力のネイルサロン。",
         telephone: phoneNumber,
         priceRange: "¥4,500〜",
+        currenciesAccepted: "JPY",
         paymentAccepted: "現金",
         address: {
           "@type": "PostalAddress",
@@ -192,6 +225,26 @@ export default function Home() {
           },
         ],
         sameAs: ["https://beauty.hotpepper.jp/kr/slnH000511388/"],
+        amenityFeature: {
+          "@type": "LocationFeatureSpecification",
+          name: "駐車場",
+          value: true,
+        },
+        potentialAction: {
+          "@type": "ReserveAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: bookingUrl,
+            actionPlatform: [
+              "https://schema.org/DesktopWebPlatform",
+              "https://schema.org/MobileWebPlatform",
+            ],
+          },
+          result: {
+            "@type": "Reservation",
+            name: "ネイルサロンの来店予約",
+          },
+        },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "名古屋市北区のネイルメニュー",
@@ -202,6 +255,7 @@ export default function Home() {
             name: item.name,
             description: item.description,
             areaServed: "名古屋市北区",
+            url: bookingUrl,
           })),
         },
       },
@@ -272,9 +326,9 @@ export default function Home() {
               <em>指先に咲く。</em>
             </h1>
             <p className="hero__lead">
-              桜ネイルサロンは、上飯田駅徒歩2分。
+              上飯田駅徒歩2分の桜ネイルサロン。
               <br />
-              1200色以上のカラーと丁寧なケアで、私らしい指先へ。
+              1200色以上のカラーと丁寧なケアで、私らしいネイルへ。
             </p>
             <div className="hero__actions">
               <a
