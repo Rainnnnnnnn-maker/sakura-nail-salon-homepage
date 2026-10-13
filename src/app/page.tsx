@@ -598,19 +598,14 @@ export default function Home() {
               <ArrowIcon />
             </a>
           </div>
-          <div className="access-section__map" aria-label="店舗周辺案内図">
-            <div className="map-grid" />
-            <span className="map-station">上飯田駅</span>
-            <span className="map-route map-route--one" />
-            <span className="map-route map-route--two" />
-            <span className="map-pin">
-              <FlowerMark small />
-            </span>
-            <div className="map-label">
-              <strong>桜ネイルサロン</strong>
-              <span>SAKURA NAIL SALON</span>
-            </div>
-            <span className="map-walk">徒歩 約2分</span>
+          <div className="access-section__map">
+            <iframe
+              src="https://maps.google.com/maps?q=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E5%8C%97%E5%8C%BA%E4%B8%8A%E9%A3%AF%E7%94%B0%E8%A5%BF%E7%94%BA3-10-10&z=16&hl=ja&output=embed"
+              title="桜ネイルサロンの地図（Google マップ）"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
         </section>
 
