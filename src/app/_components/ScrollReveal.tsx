@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const STAGGER_MS = 120;
+const STAGGER_MS = 100;
 const MAX_STAGGER_STEPS = 8;
 
 /**
@@ -36,7 +36,7 @@ export default function ScrollReveal() {
           observer.unobserve(target);
         });
       },
-      { rootMargin: "0px 0px -15% 0px" },
+      { rootMargin: "0px 0px -12% 0px" },
     );
 
     for (const target of targets) {
