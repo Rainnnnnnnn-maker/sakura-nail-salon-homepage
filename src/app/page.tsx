@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ScrollReveal from "./_components/ScrollReveal";
 
 const bookingUrl =
   "https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000511388";
@@ -360,7 +361,7 @@ export default function Home() {
         </section>
 
         <section className="intro section-shell" id="concept">
-          <div className="section-heading">
+          <div className="section-heading" data-reveal="">
             <p className="eyebrow">OUR PHILOSOPHY</p>
             <h2>
               かわいい、だけじゃない。
@@ -368,7 +369,7 @@ export default function Home() {
               <span>ずっと眺めたくなる指先へ。</span>
             </h2>
           </div>
-          <div className="intro__copy">
+          <div className="intro__copy" data-reveal="">
             <p>
               桜ネイルサロンは、名古屋市北区・上飯田の
               プライベート感のあるネイルサロンです。
@@ -382,7 +383,7 @@ export default function Home() {
         </section>
 
         <section className="local-section section-shell" aria-labelledby="local-title">
-          <div className="section-heading">
+          <div className="section-heading" data-reveal="">
             <p className="eyebrow">LOCAL NAIL SALON</p>
             <h2 id="local-title">
               名古屋市北区で
@@ -391,7 +392,7 @@ export default function Home() {
             </h2>
           </div>
           <div className="local-section__content">
-            <p>
+            <p data-reveal="">
               上飯田、平安通、志賀本通、大曽根周辺から通いやすい場所で、
               シンプルネイルから持ち込みデザインまで丁寧に仕上げます。
               名古屋市北区でネイルを長く楽しみたい方に、爪の状態や生活に
@@ -399,7 +400,7 @@ export default function Home() {
             </p>
             <div className="local-list">
               {localHighlights.map((item) => (
-                <article className="local-item" key={item.title}>
+                <article className="local-item" key={item.title} data-reveal="">
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </article>
@@ -410,7 +411,7 @@ export default function Home() {
 
         <section className="strengths section-shell" aria-label="選ばれる理由">
           {strengths.map((item) => (
-            <article className="strength-card" key={item.number}>
+            <article className="strength-card" key={item.number} data-reveal="">
               <span className="strength-card__number">{item.number}</span>
               <div className="strength-card__line" />
               <h3>{item.title}</h3>
@@ -421,7 +422,7 @@ export default function Home() {
 
         <section className="design-section" id="design">
           <div className="design-section__visual">
-            <div className="design-image design-image--main">
+            <div className="design-image design-image--main" data-reveal="">
               <Image
                 src="/images/magnetic-nail.webp"
                 alt="ローズベージュのマグネットネイル"
@@ -429,7 +430,7 @@ export default function Home() {
                 sizes="(max-width: 800px) 76vw, 32vw"
               />
             </div>
-            <div className="design-image design-image--sub">
+            <div className="design-image design-image--sub" data-reveal="">
               <Image
                 src="/images/micro-french-nail.webp"
                 alt="ボルドーのマイクロフレンチネイル"
@@ -442,18 +443,18 @@ export default function Home() {
             </span>
           </div>
           <div className="design-section__content">
-            <p className="eyebrow">DESIGN GALLERY</p>
-            <h2>
+            <p className="eyebrow" data-reveal="">DESIGN GALLERY</p>
+            <h2 data-reveal="">
               その日の気分を
               <br />
               指先に映して。
             </h2>
-            <p>
+            <p data-reveal="">
               トレンドのマグネットから、オフィスになじむ上品ネイル、
               特別な日の華やかなアートまで。豊富なカラーとパーツで
               理想のイメージを形にします。
             </p>
-            <div className="design-tags" aria-label="対応デザイン">
+            <div className="design-tags" aria-label="対応デザイン" data-reveal="">
               <span>MAGNET</span>
               <span>SIMPLE</span>
               <span>KOREAN</span>
@@ -462,6 +463,7 @@ export default function Home() {
             </div>
             <a
               className="text-link text-link--light"
+              data-reveal=""
               href="https://beauty.hotpepper.jp/kr/slnH000511388/photo/"
               target="_blank"
               rel="noreferrer"
@@ -474,7 +476,7 @@ export default function Home() {
 
         <section className="menu-section section-shell" id="menu">
           <div className="menu-section__header">
-            <div className="section-heading">
+            <div className="section-heading" data-reveal="">
               <p className="eyebrow">POPULAR MENU</p>
               <h2>
                 はじめての方にも
@@ -482,7 +484,7 @@ export default function Home() {
                 <span>選びやすいメニュー。</span>
               </h2>
             </div>
-            <p>
+            <p data-reveal="">
               表示価格は税込です。デザインやパーツにより料金が
               変わる場合があります。詳しくは予約ページをご確認ください。
             </p>
@@ -491,6 +493,7 @@ export default function Home() {
             {menuItems.map((item) => (
               <a
                 className="menu-item"
+                data-reveal=""
                 href={bookingUrl}
                 target="_blank"
                 rel="noreferrer"
@@ -508,7 +511,7 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <div className="menu-section__cta">
+          <div className="menu-section__cta" data-reveal="">
             <a
               className="button button--outline"
               href="https://beauty.hotpepper.jp/kr/slnH000511388/coupon/"
@@ -523,22 +526,23 @@ export default function Home() {
 
         <section className="review-section">
           <div className="review-section__inner section-shell">
-            <p className="eyebrow">CUSTOMER VOICE</p>
-            <div className="review-score">
+            <p className="eyebrow" data-reveal="">CUSTOMER VOICE</p>
+            <div className="review-score" data-reveal="">
               <span className="review-score__stars">★★★★★</span>
               <strong>4.83</strong>
               <span>HOT PEPPER Beauty 口コミ116件</span>
             </div>
-            <blockquote>
+            <blockquote data-reveal="">
               「デザインも豊富でいつも悩んでしまいますが、
               優しくアドバイスくださり施術も丁寧です。
               また次のネイルも楽しみになりました。」
             </blockquote>
-            <p className="review-section__source">
+            <p className="review-section__source" data-reveal="">
               20代・会社員のお客様 / HOT PEPPER Beauty 掲載口コミより
             </p>
             <a
               className="text-link"
+              data-reveal=""
               href="https://beauty.hotpepper.jp/kr/slnH000511388/review/"
               target="_blank"
               rel="noreferrer"
@@ -550,7 +554,7 @@ export default function Home() {
         </section>
 
         <section className="access-section section-shell" id="access">
-          <div className="access-section__info">
+          <div className="access-section__info" data-reveal="">
             <p className="eyebrow">ACCESS &amp; INFORMATION</p>
             <h2>桜ネイルサロン</h2>
             <p className="access-section__kana">SAKURA NAIL SALON</p>
@@ -598,7 +602,7 @@ export default function Home() {
               <ArrowIcon />
             </a>
           </div>
-          <div className="access-section__map">
+          <div className="access-section__map" data-reveal="">
             <iframe
               src="https://maps.google.com/maps?q=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E5%8C%97%E5%8C%BA%E4%B8%8A%E9%A3%AF%E7%94%B0%E8%A5%BF%E7%94%BA3-10-10&z=16&hl=ja&output=embed"
               title="桜ネイルサロンの地図（Google マップ）"
@@ -610,13 +614,13 @@ export default function Home() {
         </section>
 
         <section className="faq-section section-shell">
-          <div className="section-heading">
+          <div className="section-heading" data-reveal="">
             <p className="eyebrow">FAQ</p>
             <h2>よくあるご質問</h2>
           </div>
           <div className="faq-list">
             {faqs.map((item) => (
-              <details key={item.question}>
+              <details key={item.question} data-reveal="">
                 <summary>
                   <span>Q</span>
                   {item.question}
@@ -630,14 +634,14 @@ export default function Home() {
 
         <section className="booking-section">
           <FlowerMark />
-          <p className="eyebrow">RESERVATION</p>
-          <h2>
+          <p className="eyebrow" data-reveal="">RESERVATION</p>
+          <h2 data-reveal="">
             指先から、次の季節を
             <br />
             はじめませんか。
           </h2>
-          <p>24時間いつでも、HOT PEPPER Beautyからご予約いただけます。</p>
-          <div className="booking-section__actions">
+          <p data-reveal="">24時間いつでも、HOT PEPPER Beautyからご予約いただけます。</p>
+          <div className="booking-section__actions" data-reveal="">
             <a
               className="button button--cream"
               href={bookingUrl}
@@ -682,6 +686,8 @@ export default function Home() {
         </span>
         <ArrowIcon />
       </a>
+
+      <ScrollReveal />
     </>
   );
 }

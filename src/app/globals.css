@@ -1303,6 +1303,49 @@ svg {
   }
 }
 
+/* スクロールリビール: 状態は ScrollReveal.tsx が data-reveal-state に付ける */
+@media screen and (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    --reveal-distance: 28px;
+  }
+
+  .design-image[data-reveal] {
+    --reveal-distance: 48px;
+  }
+
+  [data-reveal-state="pending"] {
+    opacity: 0;
+    translate: 0 var(--reveal-distance);
+  }
+
+  [data-reveal-state="revealed"] {
+    animation: reveal-up 0.9s cubic-bezier(0.22, 1, 0.36, 1)
+      var(--reveal-delay, 0ms) both;
+  }
+
+  .design-image[data-reveal-state="revealed"] {
+    animation-duration: 1.2s;
+  }
+
+  .design-image[data-reveal-state="revealed"] img {
+    animation: reveal-zoom 1.8s cubic-bezier(0.22, 1, 0.36, 1)
+      var(--reveal-delay, 0ms) both;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    translate: 0 var(--reveal-distance);
+  }
+}
+
+@keyframes reveal-zoom {
+  from {
+    scale: 1.08;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
