@@ -1303,6 +1303,117 @@ svg {
   }
 }
 
+/*
+ * 出現アニメーションは「浮き上がり」と「にじみ出し」を別カーブで重ねる。
+ * 透明度とぼかしをゆっくり変えることで、一瞬で出きらず徐々に現れて見える。
+ */
+
+/* ページを開いたときのヒーロー演出（CSSのみ。JavaScript無効時も最後は通常表示になる） */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .hero__image img {
+    animation: hero-settle 2.4s cubic-bezier(0.33, 1, 0.68, 1) both;
+  }
+
+  .hero__content > * {
+    animation:
+      reveal-rise 1.25s cubic-bezier(0.25, 1, 0.5, 1) var(--reveal-delay, 0ms)
+        both,
+      reveal-fade-in 1.1s cubic-bezier(0.25, 0.1, 0.25, 1)
+        var(--reveal-delay, 0ms) both;
+  }
+
+  .hero__content > :nth-child(1) {
+    --reveal-delay: 0.15s;
+  }
+
+  .hero__content > :nth-child(2) {
+    --reveal-delay: 0.33s;
+  }
+
+  .hero__content > :nth-child(3) {
+    --reveal-delay: 0.52s;
+  }
+
+  .hero__content > :nth-child(4) {
+    --reveal-delay: 0.7s;
+  }
+
+  .hero__content > :nth-child(5) {
+    --reveal-delay: 0.88s;
+  }
+
+  .hero__scroll {
+    animation: reveal-fade-in 1s ease-out 1.3s both;
+  }
+}
+
+/* スクロールリビール: 状態は ScrollReveal.tsx が data-reveal-state に付ける */
+@media screen and (prefers-reduced-motion: no-preference) {
+  [data-reveal-state="pending"] {
+    filter: blur(var(--reveal-blur, 4px));
+    opacity: 0;
+    translate: 0 var(--reveal-distance, 42px);
+  }
+
+  [data-reveal-state="revealed"] {
+    animation:
+      reveal-rise 1.25s cubic-bezier(0.25, 1, 0.5, 1) var(--reveal-delay, 0ms)
+        both,
+      reveal-fade-in 1.1s cubic-bezier(0.25, 0.1, 0.25, 1)
+        var(--reveal-delay, 0ms) both;
+  }
+
+  /* 写真は下から幕が上がるように現れ、少し引きながら落ち着く */
+  .design-image[data-reveal] {
+    --reveal-blur: 0px;
+    --reveal-distance: 0px;
+  }
+
+  .design-image[data-reveal-state="revealed"] img {
+    animation: reveal-wipe 1.4s cubic-bezier(0.76, 0, 0.24, 1)
+      var(--reveal-delay, 0ms) both;
+  }
+
+  /* 選ばれる理由の短い線は、カードが出た後に左から伸びる */
+  .strength-card[data-reveal-state="revealed"] .strength-card__line {
+    animation: reveal-line 1s cubic-bezier(0.33, 1, 0.68, 1)
+      calc(var(--reveal-delay, 0ms) + 0.45s) both;
+    transform-origin: left;
+  }
+}
+
+@keyframes reveal-rise {
+  from {
+    translate: 0 var(--reveal-distance, 42px);
+  }
+}
+
+@keyframes reveal-fade-in {
+  from {
+    filter: blur(var(--reveal-blur, 4px));
+    opacity: 0;
+  }
+}
+
+@keyframes reveal-wipe {
+  from {
+    clip-path: inset(100% 0 0 0);
+    scale: 1.15;
+  }
+}
+
+@keyframes reveal-line {
+  from {
+    scale: 0 1;
+  }
+}
+
+@keyframes hero-settle {
+  from {
+    scale: 1.08;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
