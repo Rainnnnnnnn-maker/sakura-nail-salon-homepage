@@ -2,8 +2,8 @@
 
 import { useEffect } from "react";
 
-const STAGGER_MS = 90;
-const MAX_STAGGER_STEPS = 5;
+const STAGGER_MS = 120;
+const MAX_STAGGER_STEPS = 8;
 
 /**
  * data-reveal を付けた要素を、スクロールで画面に入ったときにふわっと表示する。
@@ -36,7 +36,7 @@ export default function ScrollReveal() {
           observer.unobserve(target);
         });
       },
-      { rootMargin: "0px 0px -10% 0px" },
+      { rootMargin: "0px 0px -15% 0px" },
     );
 
     for (const target of targets) {

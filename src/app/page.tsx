@@ -361,20 +361,20 @@ export default function Home() {
         </section>
 
         <section className="intro section-shell" id="concept">
-          <div className="section-heading" data-reveal="">
-            <p className="eyebrow">OUR PHILOSOPHY</p>
-            <h2>
+          <div className="section-heading">
+            <p className="eyebrow" data-reveal="">OUR PHILOSOPHY</p>
+            <h2 data-reveal="">
               かわいい、だけじゃない。
               <br />
               <span>ずっと眺めたくなる指先へ。</span>
             </h2>
           </div>
-          <div className="intro__copy" data-reveal="">
-            <p>
+          <div className="intro__copy">
+            <p data-reveal="">
               桜ネイルサロンは、名古屋市北区・上飯田の
               プライベート感のあるネイルサロンです。
             </p>
-            <p>
+            <p data-reveal="">
               シンプル、韓国・ワンホン、華やかなイベントネイルまで。
               一人ひとりの爪やライフスタイルに向き合い、
               「似合う」と「好き」が重なるデザインをご提案します。
@@ -383,9 +383,9 @@ export default function Home() {
         </section>
 
         <section className="local-section section-shell" aria-labelledby="local-title">
-          <div className="section-heading" data-reveal="">
-            <p className="eyebrow">LOCAL NAIL SALON</p>
-            <h2 id="local-title">
+          <div className="section-heading">
+            <p className="eyebrow" data-reveal="">LOCAL NAIL SALON</p>
+            <h2 id="local-title" data-reveal="">
               名古屋市北区で
               <br />
               <span>通いやすいネイルサロンをお探しの方へ。</span>
@@ -476,9 +476,9 @@ export default function Home() {
 
         <section className="menu-section section-shell" id="menu">
           <div className="menu-section__header">
-            <div className="section-heading" data-reveal="">
-              <p className="eyebrow">POPULAR MENU</p>
-              <h2>
+            <div className="section-heading">
+              <p className="eyebrow" data-reveal="">POPULAR MENU</p>
+              <h2 data-reveal="">
                 はじめての方にも
                 <br />
                 <span>選びやすいメニュー。</span>
@@ -554,20 +554,20 @@ export default function Home() {
         </section>
 
         <section className="access-section section-shell" id="access">
-          <div className="access-section__info" data-reveal="">
-            <p className="eyebrow">ACCESS &amp; INFORMATION</p>
-            <h2>桜ネイルサロン</h2>
-            <p className="access-section__kana">SAKURA NAIL SALON</p>
+          <div className="access-section__info">
+            <p className="eyebrow" data-reveal="">ACCESS &amp; INFORMATION</p>
+            <h2 data-reveal="">桜ネイルサロン</h2>
+            <p className="access-section__kana" data-reveal="">SAKURA NAIL SALON</p>
             <dl>
-              <div>
+              <div data-reveal="">
                 <dt>住所</dt>
                 <dd>愛知県名古屋市北区上飯田西町3-10-10</dd>
               </div>
-              <div>
+              <div data-reveal="">
                 <dt>アクセス</dt>
                 <dd>地下鉄・名鉄 上飯田駅 3番出口より徒歩約2分</dd>
               </div>
-              <div>
+              <div data-reveal="">
                 <dt>電話</dt>
                 <dd>
                   <a className="phone-link" href={phoneHref}>
@@ -575,25 +575,26 @@ export default function Home() {
                   </a>
                 </dd>
               </div>
-              <div>
+              <div data-reveal="">
                 <dt>営業時間</dt>
                 <dd>9:00–19:00（最終受付 17:00）</dd>
               </div>
-              <div>
+              <div data-reveal="">
                 <dt>定休日</dt>
                 <dd>不定休</dd>
               </div>
-              <div>
+              <div data-reveal="">
                 <dt>お支払い</dt>
                 <dd>現金のみ</dd>
               </div>
-              <div>
+              <div data-reveal="">
                 <dt>駐車場</dt>
                 <dd>あり（予約時にお知らせください）</dd>
               </div>
             </dl>
             <a
               className="button button--primary"
+              data-reveal=""
               href="https://www.google.com/maps/search/?api=1&query=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E5%8C%97%E5%8C%BA%E4%B8%8A%E9%A3%AF%E7%94%B0%E8%A5%BF%E7%94%BA3-10-10"
               target="_blank"
               rel="noreferrer"
@@ -614,9 +615,9 @@ export default function Home() {
         </section>
 
         <section className="faq-section section-shell">
-          <div className="section-heading" data-reveal="">
-            <p className="eyebrow">FAQ</p>
-            <h2>よくあるご質問</h2>
+          <div className="section-heading">
+            <p className="eyebrow" data-reveal="">FAQ</p>
+            <h2 data-reveal="">よくあるご質問</h2>
           </div>
           <div className="faq-list">
             {faqs.map((item) => (
