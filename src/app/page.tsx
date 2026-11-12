@@ -144,7 +144,8 @@ export default function Home() {
         "@id": `${siteUrl}/#website`,
         url: `${siteUrl}/`,
         name: "桜ネイルサロン",
-        alternateName: "名古屋市北区の桜ネイルサロン",
+        // name が一般的すぎて Google に採用されない場合の代替候補（記載順に検討される）
+        alternateName: ["Sakura Nail Salon@Kamiiida", "桜ネイルサロン 上飯田"],
         inLanguage: "ja-JP",
         publisher: { "@id": `${siteUrl}/#salon` },
       },
