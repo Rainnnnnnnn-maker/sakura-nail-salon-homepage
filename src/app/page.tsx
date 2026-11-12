@@ -11,13 +11,13 @@ const menuItems = [
     tag: "初回",
     name: "ワンカラー・ラメグラ",
     description: "新規オフ無料・丁寧なケア込み",
-    price: "¥4,500",
+    price: "¥4,500〜",
   },
   {
     tag: "初回",
     name: "定額 A コース",
     description: "カラー変更無料・新規オフ無料",
-    price: "¥5,980",
+    price: "¥5,980〜",
   },
   {
     tag: "人気",
@@ -29,7 +29,7 @@ const menuItems = [
     tag: "FOOT",
     name: "フット ワンカラー＋アート",
     description: "ラメアート付き",
-    price: "¥6,000",
+    price: "¥6,000〜",
   },
 ];
 
